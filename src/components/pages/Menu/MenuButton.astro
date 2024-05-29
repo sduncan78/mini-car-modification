@@ -1,0 +1,17 @@
+---
+import type { Props } from "astro";
+import ThumbsUp from "../../SVG/ThumbsUp.astro";
+
+type MenuButtonProps = {
+    href: string | URL | null;
+}
+
+const { href = "#" } = Astro.props as MenuButtonProps;
+---
+
+<a href={href} class="group border shadow-md sm:shadow-none border-3 border-mini-blue hover:border-white bg-white text-lg py-8 px-4 hover:bg-mini-blue transition-colors duration-300 uppercase bg-opacity-90 flex flex-col justify-center items-center text-black hover:text-white space-y-6 text-center font-regular leading-tight">
+    <div class="flex-1 flex w-full justify-center items-center text-mini-blue group-hover:text-white">
+        <slot name="icon" />
+    </div>
+    <span><slot name="text" /></span>
+</a>
